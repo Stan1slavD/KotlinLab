@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/medicine2">
+    <fragment
+        android:id="@+id/medicine2"
+        android:name="com.example.aptechka.medicine.Medicine"
+        android:label="Medicine"
+        tools:layout="@layout/fragment_medicine">
+        <action
+            android:id="@+id/action_medicine2_to_addMedication"
+            app:destination="@id/addMedication" />
+        <action
+            android:id="@+id/action_medicine2_to_medicineList2"
+            app:destination="@id/medicineList2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMedication"
+        android:name="com.example.aptechka.addMedication.AddMedication"
+        android:label="AddMedication"
+        tools:layout="@layout/fragment_add_medication">
+        <action
+            android:id="@+id/action_addMedication_to_medicine2"
+            app:destination="@id/medicine2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medicineList2"
+        android:name="com.example.aptechka.medicineList.MedicineList"
+        android:label="fragment_medicine_list"
+        tools:layout="@layout/fragment_medicine_list" >
+        <action
+            android:id="@+id/action_medicineList2_to_medicine2"
+            app:destination="@id/medicine2" />
+    </fragment>
+</navigation>
