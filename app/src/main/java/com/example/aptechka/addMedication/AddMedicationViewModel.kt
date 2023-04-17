@@ -32,7 +32,7 @@ class AddMedicationViewModel (val dao: MedicationDatabaseDao, application: Appli
             withContext(Dispatchers.IO){
                 dao.insert(
                     Medication(
-                    id = 0,
+                    //id = 0,
                     name = requireNotNull(medName.value),
                     form = requireNotNull(form.value),
                     quantity = requireNotNull(count.value).toInt(),

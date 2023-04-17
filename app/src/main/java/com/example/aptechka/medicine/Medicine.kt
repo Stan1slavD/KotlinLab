@@ -48,7 +48,7 @@ class Medicine : Fragment() {
         binding.fabBtn.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_medicine2_to_addMedication)
         }// Inflate the layout for this fragment
-        binding.medicineRecyclerView.setLayoutManager( LinearLayoutManager(this.context));
+        //binding.medicineRecyclerView.setLayoutManager( LinearLayoutManager(this.context));
         binding.medicineRecyclerView.adapter=adapter
         binding.lifecycleOwner = viewLifecycleOwner
 //        binding.viewModel =

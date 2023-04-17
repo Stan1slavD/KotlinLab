@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aptechka.R
 import com.example.aptechka.database.Medication
 
-class MedicineItemViewHolder (val textView: View) : RecyclerView.ViewHolder(textView) {
+class MedicineItemViewHolder (val itemView: View) : RecyclerView.ViewHolder(itemView) {
     val name: TextView = itemView.findViewById(R.id.nameTextView)
     val form: TextView = itemView.findViewById(R.id.formTextView)
     val count: TextView = itemView.findViewById(R.id.countTextView)
