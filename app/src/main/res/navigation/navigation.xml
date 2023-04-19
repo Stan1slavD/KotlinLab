@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_medicine2_to_medicineList2"
             app:destination="@id/medicineList2" />
+        <action
+            android:id="@+id/action_medicine2_to_editMedication"
+            app:destination="@id/editMedication" />
     </fragment>
     <fragment
         android:id="@+id/addMedication"
@@ -34,5 +37,13 @@
         <action
             android:id="@+id/action_medicineList2_to_medicine2"
             app:destination="@id/medicine2" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMedication"
+        android:name="com.example.aptechka.showMedication.showMedication"
+        android:label="editMedication" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

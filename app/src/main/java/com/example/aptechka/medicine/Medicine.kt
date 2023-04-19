@@ -51,6 +51,7 @@ class Medicine : Fragment() {
         //binding.medicineRecyclerView.setLayoutManager( LinearLayoutManager(this.context));
         binding.medicineRecyclerView.adapter=adapter
         binding.lifecycleOwner = viewLifecycleOwner
+
 //        binding.viewModel =
 //        binding.viewModel = viewModel
 

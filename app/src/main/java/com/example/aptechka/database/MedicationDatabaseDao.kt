@@ -19,4 +19,8 @@ interface MedicationDatabaseDao {
 
     @Query("SELECT * FROM medication_table WHERE name LIKE :query")
     fun search(query: String): LiveData<List<Medication>>
+
+    @Query("SELECT * FROM medication_table WHERE id=:id")
+    fun getById(id: Int): Medication
+
 }
