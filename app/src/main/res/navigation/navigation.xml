@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_medicineList2_to_chooseMedicineItemList"
             app:destination="@id/chooseMedicineItemList" />
+        <action
+            android:id="@+id/action_medicineList2_to_showMedicineList"
+            app:destination="@id/showMedicineList" />
     </fragment>
     <fragment
         android:id="@+id/editMedication"
@@ -56,4 +59,12 @@
         android:id="@+id/chooseMedicineItemList"
         android:name="com.example.aptechka.chooseItemMedicineList.ChooseMedicineItemList"
         android:label="chooseMedicineItemList" />
+    <fragment
+        android:id="@+id/showMedicineList"
+        android:name="com.example.aptechka.showMedicineList.ShowMedicineList"
+        android:label="ShowMedicineList" >
+        <argument
+            android:name="nameList"
+            app:argType="string" />
+    </fragment>
 </navigation>

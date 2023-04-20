@@ -37,4 +37,10 @@ fun insertMedicationList(medicineList: MedicationList)
 fun getAllList():LiveData<List<MedicationList>>
 @Query("SELECT * FROM medication_table WHERE name=:name")
 fun searchMedication(name:String):LiveData<List<Medication>>
+
+@Query ("SELECT * FROM medication_list_table WHERE medicationName=:medicationName")
+fun getMedicationsByName(medicationName:String):LiveData<List<MedicationList>>
+
+@Query ("SELECT * FROM medication_list_table")
+fun getAllMedicationList():LiveData<List<MedicationList>>
 }

@@ -58,6 +58,7 @@ class MedicineList : Fragment() {
         viewModel.medList.observe(viewLifecycleOwner){
                 data->adapter.data=data
         }
+        //binding.medicineListRecyclerView.set
         binding.medicineListRecyclerView.adapter=adapter
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_medicine_list, container, false)

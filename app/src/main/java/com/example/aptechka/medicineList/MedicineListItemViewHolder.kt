@@ -1,7 +1,9 @@
 package com.example.aptechka.medicineList
 
+import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aptechka.R
 import com.example.aptechka.database.MedicationList
@@ -41,5 +43,12 @@ class MedicineListItemViewHolder (val itemView: View): RecyclerView.ViewHolder(i
 //
 
             //.actionRoomsFragmentToMaterialEditorFragment(roomId = item.roomId))
+        item_layout_list.setOnClickListener{
+            Log.i("NAME", name.text.toString())
+            it.findNavController().navigate(MedicineListDirections.actionMedicineList2ToShowMedicineList(
+                requireNotNull(name.text.toString())
+
+            ))
+        }
         }
     }
