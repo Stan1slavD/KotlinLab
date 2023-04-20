@@ -58,7 +58,11 @@
     <fragment
         android:id="@+id/chooseMedicineItemList"
         android:name="com.example.aptechka.chooseItemMedicineList.ChooseMedicineItemList"
-        android:label="chooseMedicineItemList" />
+        android:label="chooseMedicineItemList" >
+        <action
+            android:id="@+id/action_chooseMedicineItemList_to_medicineList2"
+            app:destination="@id/medicineList2" />
+    </fragment>
     <fragment
         android:id="@+id/showMedicineList"
         android:name="com.example.aptechka.showMedicineList.ShowMedicineList"
@@ -66,5 +70,8 @@
         <argument
             android:name="nameList"
             app:argType="string" />
+        <action
+            android:id="@+id/action_showMedicineList_to_medicineList2"
+            app:destination="@id/medicineList2" />
     </fragment>
 </navigation>

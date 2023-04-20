@@ -7,7 +7,7 @@ import com.example.aptechka.R
 import com.example.aptechka.database.MedicationList
 import java.lang.reflect.Array.set
 
-class MedicineListAdapter:  RecyclerView.Adapter<MedicineListItemViewHolder>() {
+class MedicineListAdapter : RecyclerView.Adapter<MedicineListItemViewHolder>() {
     var data = listOf<MedicationList>()
         set(value) {
             field = value
@@ -28,9 +28,4 @@ class MedicineListAdapter:  RecyclerView.Adapter<MedicineListItemViewHolder>() {
         holder.bind(item)
     }
 
-
-//    override fun onBindViewHolder(holder: MedicineItemViewHolder, position: Int) {
-//        val item = data[position]
-//        holder.bind(item)
-//    }
 }

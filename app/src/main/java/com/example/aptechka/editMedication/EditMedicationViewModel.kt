@@ -22,45 +22,74 @@ class EditMedicationViewModel(
     var count = MutableLiveData<String>()
     var dosage = MutableLiveData<String>()
     var comment = MutableLiveData<String>()
-    init  {
+
+    init {
         getMedication()
 
-       //Thread.sleep(5_000)
-        Log.i("MEdName",medName.value.toString())
+        //Thread.sleep(5_000)
+        Log.i("MEdName", medName.value.toString())
     }
 
-    private  fun getMedication() {
+    private fun getMedication() {
         uiScope.launch {
 
-                val medication = getMedicationAsync();
-                medName.value = medication.name.toString()
-                form.value = medication.form.toString()
-                count.value = medication.quantity.toString()
-                dosage.value = medication.dosage.toString()
-                comment.value = medication.comment.toString()
-            Log.i("MEdNameLaunch",medName.value.toString())
+            val medication = getMedicationAsync();
+            medName.value = medication.name.toString()
+            form.value = medication.form.toString()
+            count.value = medication.quantity.toString()
+            dosage.value = medication.dosage.toString()
+            comment.value = medication.comment.toString()
+            Log.i("MEdNameLaunch", medName.value.toString())
 
         }
     }
 
-    fun deleteMedicationById(){
+    fun deleteMedicationById() {
         uiScope.launch {
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 dao.deleteById(id)
             }
         }
     }
-
-    fun updateMedication(name:String, form:String, count:String, dosage:String, comment:String ){
+    fun deleteMedicationByNameInList(name: String){
         uiScope.launch {
-            withContext(Dispatchers.IO){
-                dao.update(Medication(id=id,name=name, form =form, quantity = count.toInt(), dosage = dosage, comment = comment))
+            withContext(Dispatchers.IO) {
+                dao.deleteByNameList(name)
+            }
+        }
+    }
+    fun updateMedicineList(newName:String, oldName:String){
+        uiScope.launch {
+            withContext(Dispatchers.IO) {
+                dao.updateList(newName, oldName)
+            }
+        }
+    }
+    fun updateMedication(
+        name: String,
+        form: String,
+        count: String,
+        dosage: String,
+        comment: String
+    ) {
+        uiScope.launch {
+            withContext(Dispatchers.IO) {
+                dao.update(
+                    Medication(
+                        id = id,
+                        name = name,
+                        form = form,
+                        quantity = count.toInt(),
+                        dosage = dosage,
+                        comment = comment
+                    )
+                )
             }
         }
     }
 
     suspend fun getMedicationAsync() = withContext(Dispatchers.IO) {
-        Log.i("MEdNameAsync",medName.value.toString())
+        Log.i("MEdNameAsync", medName.value.toString())
         return@withContext dao.getById(id)
     }
 

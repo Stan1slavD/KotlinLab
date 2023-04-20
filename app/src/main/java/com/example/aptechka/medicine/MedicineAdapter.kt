@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aptechka.R
 import com.example.aptechka.database.Medication
 
-class MedicineAdapter: RecyclerView.Adapter<MedicineItemViewHolder>() {
+class MedicineAdapter : RecyclerView.Adapter<MedicineItemViewHolder>() {
     var data = listOf<Medication>()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun getItemCount() = data.size
 

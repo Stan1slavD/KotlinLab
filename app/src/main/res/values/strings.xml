@@ -2,4 +2,11 @@
     <string name="app_name">Aptechka</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="form">Form</string>
+    <string name="comment">Comment</string>
+    <string name="count">Count</string>
+    <string name="dosage">Dosage</string>
+    <string name="search">Search...</string>
+    <string name="textview">TextView</string>
 </resources>

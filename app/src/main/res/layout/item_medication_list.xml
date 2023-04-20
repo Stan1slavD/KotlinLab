@@ -8,12 +8,15 @@
 
     <TextView
         android:id="@+id/nameList"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C84343"
-        android:text="TextView"
+        android:background="@color/grey"
+        android:textColor="@color/yellow"
+        android:padding="20dp"
+        android:text="@string/textview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"/>
 
 
 

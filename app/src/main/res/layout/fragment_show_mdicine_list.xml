@@ -9,16 +9,19 @@
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey">
 
     <TextView
         android:id="@+id/nameListTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/yellow"
+        android:textSize="20dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/backBtn"
@@ -29,7 +32,9 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_cancel_24" />
+        app:srcCompat="@drawable/baseline_cancel_24"
+
+        android:backgroundTint="@color/yellow"/>
 
     <ListView
         android:id="@+id/listListView"
@@ -39,7 +44,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameListTextView">
+        app:layout_constraintTop_toBottomOf="@+id/nameListTextView"
+        android:background="@color/grey"
+        >
 
     </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>

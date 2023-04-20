@@ -9,7 +9,8 @@
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/backBtn"
@@ -21,6 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/baseline_cancel_24"
+        android:backgroundTint="@color/yellow"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -32,7 +34,8 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_check_24" />
+        app:srcCompat="@drawable/baseline_check_24"
+        android:backgroundTint="@color/yellow"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/canclelBtn"
@@ -41,6 +44,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/baseline_cancel_24" />
@@ -52,6 +56,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_edit_24" />
@@ -125,6 +130,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@={viewModel.medName}"
+        android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -135,8 +141,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:textColor="@color/yellow"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@={viewModel.form}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editName" />
@@ -147,8 +154,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:textColor="@color/yellow"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@={viewModel.count}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,8 +168,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:textColor="@color/yellow"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@={viewModel.dosage}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,8 +182,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:textColor="@color/yellow"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@={viewModel.comment}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -186,6 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

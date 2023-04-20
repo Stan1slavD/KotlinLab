@@ -39,10 +39,9 @@ class MedicineList : Fragment() {
         val application = requireNotNull(this.activity).application
         val dao = MedicationDatabase.getInstance(application).getMedicationDatabaseDao()
         val viewModelFactory = MedicineListViewModelFactory(dao, application)
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(MedicineListViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(MedicineListViewModel::class.java)
 
-//        val binding: FragmentMedicineBinding =
-//            DataBindingUtil.inflate(inflater, R.layout.fragment_medicine, container, false);
 
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_medicine_list, container, false);
@@ -51,17 +50,15 @@ class MedicineList : Fragment() {
         binding.fabMedList.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_medicineList2_to_medicine2)
         }
-        binding.fabBtn.setOnClickListener{
-            view->
-            Navigation.findNavController(view).navigate(R.id.action_medicineList2_to_chooseMedicineItemList)
+        binding.fabBtn.setOnClickListener { view ->
+            Navigation.findNavController(view)
+                .navigate(R.id.action_medicineList2_to_chooseMedicineItemList)
         }
-        viewModel.medList.observe(viewLifecycleOwner){
-                data->adapter.data=data
+        viewModel.medList.observe(viewLifecycleOwner) { data ->
+            adapter.data = data
         }
-        //binding.medicineListRecyclerView.set
-        binding.medicineListRecyclerView.adapter=adapter
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_medicine_list, container, false)
+        binding.medicineListRecyclerView.adapter = adapter
+
         return binding.root
     }
 }

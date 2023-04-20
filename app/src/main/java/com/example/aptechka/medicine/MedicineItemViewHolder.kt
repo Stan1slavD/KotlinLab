@@ -11,7 +11,7 @@ import com.example.aptechka.R
 import com.example.aptechka.database.Medication
 
 
-class MedicineItemViewHolder (val itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MedicineItemViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
     val name: TextView = itemView.findViewById(R.id.nameTextView)
     val form: TextView = itemView.findViewById(R.id.formTextView)
     val count: TextView = itemView.findViewById(R.id.countTextView)
@@ -23,26 +23,17 @@ class MedicineItemViewHolder (val itemView: View) : RecyclerView.ViewHolder(item
     fun bind(item: Medication) {
         name.text = item.name.toString();
         form.text = item.form.toString();
-         count.text = item.quantity.toString();
+        count.text = item.quantity.toString();
         dosage.text = item.dosage.toString();
         comment.text = item.comment.toString();
         item_layout.setOnClickListener { view ->
-            Log.i("Sniper","Pudge")
-            Log.i("ID",item.id.toString() )
-            val bundle = Bundle()
-            bundle.putString("id", "value1")
-            bundle.putInt("arg2", 2)
-            //view.findNavController().navigate(R.id.action_medicine2_to_editMedication, item.id)
-            //Navigation.findNavController(this.itemView).navigate(R.id.action_medicine2_to_editMedication, bundle)
-                //Navigation.navigate(RoomsFragmentDirections.actionRoomsFragmentToMaterialEditorFragment(roomId = item.roomId))
-                //view.findNavController().navigate()
-//            view.findNavController().navigate(
-//                .actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
-            view.findNavController().navigate(MedicineDirections.actionMedicine2ToEditMedication(
-                requireNotNull( item.id)))
+            view.findNavController().navigate(
+                MedicineDirections.actionMedicine2ToEditMedication(
+                    requireNotNull(item.id)
+                )
+            )
 
 
-        //.actionRoomsFragmentToMaterialEditorFragment(roomId = item.roomId))
         }
     }
 }

@@ -37,11 +37,9 @@ class Medicine : Fragment() {
         val viewModelFactory = MedicineViewModelFactory(dao, application)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MedicineViewModel::class.java)
 
-         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_medicine, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_medicine, container, false);
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
-
-       // binding = DataBindingUtil.inflate(inflater, R.layout.fragment_medicine, container, false);
 
 
         binding.fabMed.setOnClickListener {
@@ -49,20 +47,15 @@ class Medicine : Fragment() {
         }
         binding.fabBtn.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_medicine2_to_addMedication)
-        }// Inflate the layout for this fragment
-        //binding.medicineRecyclerView.setLayoutManager( LinearLayoutManager(this.context));
-        binding.medicineRecyclerView.adapter=adapter
+        }
+        binding.medicineRecyclerView.adapter = adapter
         binding.lifecycleOwner = viewLifecycleOwner
 
-//        binding.viewModel =
-//        binding.viewModel = viewModel
 
-        viewModel.medicineList.observe(viewLifecycleOwner){
-             data->adapter.data=data
+        viewModel.medicineList.observe(viewLifecycleOwner) { data ->
+            adapter.data = data
         }
-        binding.searchBtn.setOnClickListener{
-            viewModel.getMedicationByName()
-        }
+
 
 
         binding.search.addTextChangedListener(object : TextWatcher {
@@ -75,28 +68,22 @@ class Medicine : Fragment() {
         }
         )
 
-//        val application = requireActivity().application
-//        val dao = MedicationDatabase.getInstance(application).getMedicationDatabaseDao()
-//        val viewModelFactory = MedicineViewModelFactory(dao, application)
-//        viewModel = ViewModelProvider(this, viewModelFactory).get(MedicineViewModel::class.java)
 
         return binding.root;
-        // return inflater.inflate(R.layout.fragment_medicine, container, false)
     }
+
     private fun updateSearch() {
 
         val s = binding.search.text
 
         if (s?.length == 0) {
-            // Пользователь очистил поле поиска. Показываем все предметы
-            // Загружаем в адаптер лист со всеми предметами
             adapter.data = viewModel.medicineList.value!!
 
         } else {
-            // Пользователь что-то ввёл. Делаем поиск по этому запросу
-            // Загружаем в адаптер отфильтрованный лист
+
             adapter.data = viewModel.medicineList.value?.filter {
-                it.name.toString().startsWith(s.toString(), true) || it.name.toString().contains(s.toString(), true)
+                it.name.toString().startsWith(s.toString(), true) || it.name.toString()
+                    .contains(s.toString(), true)
             } as ArrayList
         }
         adapter.notifyDataSetChanged()

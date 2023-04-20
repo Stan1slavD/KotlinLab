@@ -22,7 +22,6 @@ import kotlin.math.log
  */
 class AddMedication : Fragment() {
 
-    //private lateinit var binding: FragmentAddMedicationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,27 +36,22 @@ class AddMedication : Fragment() {
         val application = requireNotNull(this.activity).application
         val dao = MedicationDatabase.getInstance(application).getMedicationDatabaseDao()
         val viewModelFactory = AddMedicationViewModelFactory(dao, application)
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(AddMedicationViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(AddMedicationViewModel::class.java)
 
 
-       val binding:FragmentAddMedicationBinding =
+        val binding: FragmentAddMedicationBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_medication, container, false);
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
-//        viewModel.medName.observe(viewLifecycleOwner, Observer { med ->
-//            binding.nameEditText.text = med.to
-//        })
         binding.createFab.setOnClickListener {
-            //Log.i("EZ", binding.nameEditText.text.toString())
             viewModel.onCreateMedication()
-            //Navigation.findNavController(it).navigate(R.id.action_addMedication_to_medicine2)
+            Navigation.findNavController(it).navigate(R.id.action_addMedication_to_medicine2)
         }
         binding.cancelFab.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_addMedication_to_medicine2)
         }
-        // Inflate the layout for this fragment
         return binding.root
-        //return inflater.inflate(R.layout.add_fragment, container, false)
     }
 
 }

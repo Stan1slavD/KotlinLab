@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.aptechka.R
 import com.example.aptechka.database.MedicationDatabase
 import com.example.aptechka.databinding.FragmentShowMdicineListBinding
@@ -35,7 +36,7 @@ class ShowMedicineList : Fragment(){
         binding.viewModel=viewModel
 
         var test :ArrayList<String> = arrayListOf();
-        val aa = ArrayAdapter(application,android.R.layout.simple_list_item_multiple_choice,
+        val aa = ArrayAdapter(application,android.R.layout.simple_list_item_1,
             test)
         viewModel.medicineList.observe(viewLifecycleOwner){list->list.forEach{el->
             if(el.name.equals(args.nameList)){
@@ -43,7 +44,11 @@ class ShowMedicineList : Fragment(){
             }
 
         }}
-
+        binding.nameListTextView.text=args.nameList
+        binding.backBtn.setOnClickListener{
+            view->
+            Navigation.findNavController(view).navigate(R.id.action_showMedicineList_to_medicineList2)
+        }
         binding.listListView.adapter=aa
 
             return binding.root;
