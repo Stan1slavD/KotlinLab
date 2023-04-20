@@ -1,4 +1,4 @@
-package com.example.aptechka.showMedication
+package com.example.aptechka.editMedication
 
 import android.app.Application
 import android.util.Log
@@ -11,42 +11,57 @@ import kotlinx.coroutines.*
 class EditMedicationViewModel(
     val dao: MedicationDatabaseDao,
     application: Application,
-    id: Int) : AndroidViewModel(application) {
+    var id: Int
+) : AndroidViewModel(application) {
 
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    //private val medications = dao.getAll()
-    //private var medicationDataList = MutableLiveData<Medication?>()
 
-    val id = id
-    val medName = MutableLiveData<String>()
-    val form = MutableLiveData<String>()
-    val count = MutableLiveData<String>()
-    val dosage = MutableLiveData<String>()
-    val comment = MutableLiveData<String>()
-
-    init {
+    var medName = MutableLiveData<String>()
+    var form = MutableLiveData<String>()
+    var count = MutableLiveData<String>()
+    var dosage = MutableLiveData<String>()
+    var comment = MutableLiveData<String>()
+    init  {
         getMedication()
+
+       //Thread.sleep(5_000)
+        Log.i("MEdName",medName.value.toString())
     }
 
-    fun getMedication() {
-        Log.i("GG WP", "GET")
-        //Log.i("GGWP ",medName.value.toString())
+    private  fun getMedication() {
         uiScope.launch {
 
-            withContext(Dispatchers.IO) {
                 val medication = getMedicationAsync();
                 medName.value = medication.name.toString()
                 form.value = medication.form.toString()
                 count.value = medication.quantity.toString()
                 dosage.value = medication.dosage.toString()
                 comment.value = medication.comment.toString()
-            }
+            Log.i("MEdNameLaunch",medName.value.toString())
 
         }
     }
 
+    fun deleteMedicationById(){
+        uiScope.launch {
+            withContext(Dispatchers.IO){
+                dao.deleteById(id)
+            }
+        }
+    }
+
+    fun updateMedication(name:String, form:String, count:String, dosage:String, comment:String ){
+        uiScope.launch {
+            withContext(Dispatchers.IO){
+                dao.update(Medication(id=id,name=name, form =form, quantity = count.toInt(), dosage = dosage, comment = comment))
+            }
+        }
+    }
+
     suspend fun getMedicationAsync() = withContext(Dispatchers.IO) {
+        Log.i("MEdNameAsync",medName.value.toString())
         return@withContext dao.getById(id)
     }
+
 }

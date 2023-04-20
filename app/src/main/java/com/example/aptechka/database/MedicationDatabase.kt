@@ -1,10 +1,12 @@
 package com.example.aptechka.database
 
+
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-@Database(entities = [Medication::class], version = 1, exportSchema = false)
+@Database(entities = [Medication::class,MedicationList::class], version = 2, exportSchema = false)
 abstract class MedicationDatabase:RoomDatabase() {
     companion object{
         @Volatile

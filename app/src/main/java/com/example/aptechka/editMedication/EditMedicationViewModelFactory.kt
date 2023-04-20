@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.aptechka.database.MedicationDatabaseDao
+import com.example.aptechka.editMedication.EditMedicationViewModel
 
 //
 //class editMedicationViewModelFactory {
